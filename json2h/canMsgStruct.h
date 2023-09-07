@@ -1,5 +1,5 @@
-#ifndef _STRUCT_CANSTRUCT_H
-#define _STRUCT_CANSTRUCT_H
+#ifndef _CANMSGSTRUCT_CANSTRUCT_H
+#define _CANMSGSTRUCT_CANSTRUCT_H
 
 typedef struct
 {
@@ -25,5 +25,13 @@ typedef struct
 } battery_canVal;
 #define battery_canVal_period (2000)
 #define battery_canVal_msgid (3)
+
+typedef struct
+{
+    unsigned long long signalname9;
+    unsigned long long signalname10;
+} something_else_canVal;
+#define something_else_canVal_period (10000)
+#define something_else_canVal_msgid (4)
 
 #endif
