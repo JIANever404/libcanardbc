@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "candbc-model.h": "c",
+        "candbc-reader.h": "c"
+    }
+}
