@@ -28,6 +28,9 @@ You will only need to install:
 - json-glib-1.0 (on Debian/Ubuntu: libjson-glib-dev; on other OSes probably a
 similar name)
 
+- m4: https://ftp.gnu.org/gnu/m4/
+- autoconf: https://ftp.gnu.org/gnu/autoconf/
+
 and a C compiler (gcc or clang) to compile the library.
 
 To install, just run the usual dance, `./configure && make install`. Run
