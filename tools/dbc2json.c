@@ -75,16 +75,16 @@ static void extract_message_signals(JsonBuilder *builder, signal_list_t* signal_
         return;
 
     json_builder_set_member_name(builder, "signals");
-    json_builder_begin_object(builder);
+    json_builder_begin_array(builder); // Change to begin an array
 
     while (signal_list != NULL) {
         signal_t *signal = signal_list->signal;
 
-        /* Keys are the signal names */
-        json_builder_set_member_name(builder, signal->name);
-
         json_builder_begin_object(builder);
-        json_builder_set_member_name(builder, "bit_start");
+        json_builder_set_member_name(builder, "signalName"); // Add signalName attribute
+        json_builder_add_string_value(builder, signal->name);
+
+        json_builder_set_member_name(builder, "startBit");
         json_builder_add_int_value(builder, signal->bit_start);
 
         json_builder_set_member_name(builder, "length");
@@ -163,7 +163,7 @@ static void extract_message_signals(JsonBuilder *builder, signal_list_t* signal_
         stats->signals++;
         signal_list = signal_list->next;
     }
-    json_builder_end_object(builder);
+    json_builder_end_array(builder); // Change to end the array
 }
 
 static int extract_attribute_definitions(JsonBuilder *builder, attribute_definition_list_t* attribute_definition_list)
@@ -211,19 +211,17 @@ static void extract_messages(JsonBuilder *builder, message_list_t *message_list,
 {
     /* Extract message list */
     json_builder_set_member_name(builder, "messages");
-    json_builder_begin_object(builder);
+    json_builder_begin_array(builder); // Change to begin an array
 
     while (message_list != NULL) {
         int multiplexing_count;
         message_t *message = message_list->message;
         GHashTable *multiplexing_table = g_hash_table_new(g_int_hash, g_int_equal);
 
-        /* Keys are the message IDs */
-        char *s_id = g_strdup_printf("%lu", message->id);
-        json_builder_set_member_name(builder, s_id);
-        g_free(s_id);
-
         json_builder_begin_object(builder);
+        json_builder_set_member_name(builder, "canId"); // Add canid attribute
+        json_builder_add_int_value(builder, message->id);
+
         json_builder_set_member_name(builder, "name");
         json_builder_add_string_value(builder, message->name);
 
@@ -255,7 +253,7 @@ static void extract_messages(JsonBuilder *builder, message_list_t *message_list,
         message_list = message_list->next;
     }
 
-    json_builder_end_object(builder);
+    json_builder_end_array(builder); // Change to end the array
 }
 
 
