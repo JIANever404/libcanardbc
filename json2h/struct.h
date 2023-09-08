@@ -5,6 +5,7 @@ typedef struct
 {
     unsigned long long signalname1;
     unsigned long long signalname2;
+    unsigned long long signalname3;
     unsigned long long signalname4;
 } CarEngine_canVal;
 #define CarEngine_canVal_period (50)
@@ -13,6 +14,7 @@ typedef struct
 typedef struct
 {
     unsigned long long signalname5;
+    unsigned long long signalname6;
     unsigned long long signalname7;
     unsigned long long signalname8;
 } CarDoor_canVal;
@@ -22,6 +24,7 @@ typedef struct
 typedef struct
 {
     unsigned long long signalname9;
+    unsigned long long signalname10;
 } battery_canVal;
 #define battery_canVal_period (2000)
 #define battery_canVal_msgid (3)

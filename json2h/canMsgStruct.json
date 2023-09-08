@@ -5,45 +5,44 @@
     [
         {
             "msgname": "CarEngine",
-            "signals":
-            {
-                "signalname1":1,
-                "signalname2":1,
-                "signalname3":0,
-                "signalname4":1
-            },
+            "signals": [
+                "signalname1",
+                "signalname2",
+                "signalname3",
+                "signalname4"
+            ],
             "period" : 50,
             "msgid": 1
         },
         {
             "msgname": "CarDoor",
-            "signals":
-            {
-                "signalname5":1,
-                "signalname6":0,
-                "signalname7":1,
-                "signalname8":1
-            },
+            "signals": [
+                "signalname1",
+                "signalname2",
+                "signalname3",
+                "signalname4"
+            ],
             "period" : 100,
             "msgid": 2
         },
         {
             "msgname": "battery",
-            "signals":
-            {
-                "signalname9":1,
-                "signalname10":0
-            },
+            "signals": [
+                "signalname1",
+                "signalname2",
+                "signalname3",
+                "signalname4"
+            ],
             "period" : 2000,
             "msgid": 3
         },
         {
             "msgname": "something_else",
-            "signals":
-            {
-                "signalname9":1,
-                "signalname10":1
-            },
+            "signals": [
+                "signalname1",
+                "signalname2",
+                "signalname3"
+            ],
             "period" : 10000,
             "msgid": 4
         }

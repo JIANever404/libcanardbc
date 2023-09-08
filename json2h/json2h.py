@@ -21,9 +21,8 @@ def generate_c_header(data, header_name):
         struct_declaration = f"typedef struct\n{{\n"
         struct_members = []
 
-        for signal_name, value in signals.items():
-            if value == 1:
-                struct_members.append(f"    unsigned long long {signal_name};")
+        for signal_name in signals:
+            struct_members.append(f"    unsigned long long {signal_name};")
 
         struct_declaration += "\n".join(struct_members) + "\n"
         struct_declaration += f"}} {msgname};\n"
@@ -35,6 +34,7 @@ def generate_c_header(data, header_name):
     header += "#endif\n"
 
     return header
+
 
 # Write the C header file
 def write_c_header(header, file_name):

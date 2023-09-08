@@ -84,6 +84,11 @@ static void extract_message_signals(JsonBuilder *builder, signal_list_t* signal_
         json_builder_set_member_name(builder, "signalName"); // Add signalName attribute
         json_builder_add_string_value(builder, signal->name);
 
+        static int signalIndexVal = 0;
+        signalIndexVal += 1;
+        json_builder_set_member_name(builder, "signalIndex");
+        json_builder_add_int_value(builder, signalIndexVal);
+
         json_builder_set_member_name(builder, "startBit");
         json_builder_add_int_value(builder, signal->bit_start);
 
@@ -210,7 +215,11 @@ static int extract_attribute_definitions(JsonBuilder *builder, attribute_definit
 static void extract_messages(JsonBuilder *builder, message_list_t *message_list, stats_t *stats)
 {
     /* Extract message list */
-    json_builder_set_member_name(builder, "messages");
+    json_builder_set_member_name(builder, "data");
+    json_builder_begin_object(builder);
+    json_builder_set_member_name(builder, "canEncodeMode"); // Add canid attribute
+    json_builder_add_int_value(builder, 1);
+    json_builder_set_member_name(builder, "canItems"); // Add canid attribute
     json_builder_begin_array(builder); // Change to begin an array
 
     while (message_list != NULL) {
@@ -221,6 +230,10 @@ static void extract_messages(JsonBuilder *builder, message_list_t *message_list,
         json_builder_begin_object(builder);
         json_builder_set_member_name(builder, "canId"); // Add canid attribute
         json_builder_add_int_value(builder, message->id);
+
+        //目前channelId在DBC里不是标注的数据，是我们自己的数据，所以目前只能写一个死值，生成JSON后手动修改
+        json_builder_set_member_name(builder, "channelId");
+        json_builder_add_int_value(builder, 1);
 
         json_builder_set_member_name(builder, "name");
         json_builder_add_string_value(builder, message->name);
@@ -254,6 +267,7 @@ static void extract_messages(JsonBuilder *builder, message_list_t *message_list,
     }
 
     json_builder_end_array(builder); // Change to end the array
+    json_builder_end_object(builder);
 }
 
 

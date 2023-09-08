@@ -1,40 +1,36 @@
 {
     "version": 101,
     "project": "bj60",
-    "structs":
-    [
+    "structs": [
         {
             "msgname": "CarEngine",
-            "signals":
-            {
-                "signalname1":1,
-                "signalname2":1,
-                "signalname3":0,
-                "signalname4":1
-            },
-            "period" : 50,
+            "signals": [
+                "signalname1",
+                "signalname2",
+                "signalname3",
+                "signalname4"
+            ],
+            "period": 50,
             "msgid": 1
         },
         {
             "msgname": "CarDoor",
-            "signals":
-            {
-                "signalname5":1,
-                "signalname6":0,
-                "signalname7":1,
-                "signalname8":1
-            },
-            "period" : 100,
+            "signals": [
+                "signalname5",
+                "signalname6",
+                "signalname7",
+                "signalname8"
+            ],
+            "period": 100,
             "msgid": 2
         },
         {
             "msgname": "battery",
-            "signals":
-            {
-                "signalname9":1,
-                "signalname10":0
-            },
-            "period" : 2000,
+            "signals": [
+                "signalname9",
+                "signalname10"
+            ],
+            "period": 2000,
             "msgid": 3
         }
     ]
